@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EntityFrameworkDemo
+namespace EntityFramework.Demo
 {
     [Table("Employee")]
     internal class Employee

@@ -1,20 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace EntityFrameworkDemo
+namespace EntityFramework.Demo
 {
     internal class EmployeeContext : DbContext
     {
+        private readonly string connectionString;
+
         public EmployeeContext(string connectionString)
         {
-            ConnectionString = connectionString;
+            this.connectionString = connectionString;
         }
 
         public DbSet<Employee> Employees { get; set; }
-        public string ConnectionString { get; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(ConnectionString);
+            optionsBuilder.UseSqlServer(connectionString);
         }
     }
 }

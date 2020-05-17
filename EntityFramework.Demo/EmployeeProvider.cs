@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace EntityFrameworkDemo
+namespace EntityFramework.Demo
 {
     internal class EmployeeProvider : IEmployeeProvider
     {

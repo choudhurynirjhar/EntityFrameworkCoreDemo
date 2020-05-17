@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace EntityFrameworkDemo
+namespace EntityFramework.Demo
 {
-    internal class MultipleEmployeeCreator
+    internal class EmployeeTransactionalCreator
     {
         private readonly EmployeeContext employeeContext;
 
-        public MultipleEmployeeCreator(EmployeeContext employeeContext)
+        public EmployeeTransactionalCreator(EmployeeContext employeeContext)
         {
             this.employeeContext = employeeContext;
         }
@@ -19,16 +21,15 @@ namespace EntityFrameworkDemo
                 {
                     foreach (var employee in employees)
                     {
-                        employeeContext.Add(employee);
+                        employeeContext.Employees.Add(employee);
                         employeeContext.SaveChanges();
                     }
                     transaction.Commit();
                 }
-                catch(Exception exc)
+                catch (Exception)
                 {
                     transaction.Rollback();
-                    Console.WriteLine(exc);
-                    // Log etc.
+                    // Log etc
                 }
             }
         }

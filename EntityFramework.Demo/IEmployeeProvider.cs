@@ -1,4 +1,4 @@
-﻿namespace EntityFrameworkDemo
+﻿namespace EntityFramework.Demo
 {
     internal interface IEmployeeProvider
     {
