@@ -14,7 +14,7 @@ namespace EntityFramework.Demo
         public Employee Get(int id)
         {
             return employeeContext.Employees.FromSqlRaw
-                ($"SELECT id, first_name,last_name,address,home_phone,cell_phone FROM Employee WHERE id={id}")
+                ("SELECT id, first_name,last_name,home_phone,cell_phone FROM Employee WHERE id=({0})", id)
                 .FirstOrDefaultAsync().Result;
         }
     }

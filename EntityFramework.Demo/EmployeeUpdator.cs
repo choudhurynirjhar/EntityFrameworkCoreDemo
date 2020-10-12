@@ -14,8 +14,11 @@ namespace EntityFramework.Demo
 
         public void Update(int id, string firstName)
         {
-            var query = $"UPDATE Employee SET first_name = '{firstName}' WHERE id=(@id)";
-            var param = new SqlParameter("@id", id);
+            var query = "UPDATE Employee SET first_name = (@firstName) WHERE id=(@id)";
+            var param = new[] {
+                new SqlParameter("@id", id),
+                new SqlParameter("@firstName", firstName)
+        };
 
             employeeContext.Database.ExecuteSqlRaw(query, param);
         }

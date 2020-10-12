@@ -10,7 +10,6 @@ namespace EntityFramework.Demo
         public string FirstName { get; set; }
         [Column("last_name")]
         public string LastName { get; set; }
-        public string Address { get; set; }
         [Column("home_phone")]
         public string HomePhone { get; set; }
         [Column("cell_phone")]
