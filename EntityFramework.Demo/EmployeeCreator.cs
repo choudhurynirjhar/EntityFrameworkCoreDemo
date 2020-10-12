@@ -20,7 +20,6 @@ namespace EntityFramework.Demo
             {
                 new SqlParameter("@first_name", employee.FirstName),
             new SqlParameter("@last_name", employee.LastName),
-            new SqlParameter("@address", employee.Address),
             new SqlParameter("@home_phone", employee.HomePhone),
             new SqlParameter("@cell_phone", employee.CellPhone)
             };
